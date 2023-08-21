@@ -105,15 +105,15 @@
                 <label
                   for="email"
                   class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
-                  >Email or Username</label
+                  >Email</label
                 >
                 <input
-                  v-model="username"
+                  v-model="email"
                   type="text"
                   class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
                   id="email"
-                  name="email-username"
-                  placeholder="Enter your email or username"
+                  name="email-email"
+                  placeholder="Enter your email "
                   autofocus=""
                   required
                 />
@@ -125,12 +125,7 @@
                     for="password"
                     >Password</label
                   >
-                  <a
-                    href="auth-forgot-password-basic.html"
-                    class="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"
-                  >
-                    <small class=" ">Forgot Password?</small>
-                  </a>
+                  
                 </div>
                 <div class="relative flex w-full flex-wrap items-stretch">
                   <input
@@ -143,6 +138,12 @@
                     required
                   />
                 </div>
+                <a
+                    href="#"
+                    class="cursor-pointer text-indigo-500 no-underline hover:text-indigo-500"
+                  >
+                    <small class=" ">Forgot Password?</small>
+                  </a>
               </div>
               <div class="mb-4">
                 <div class="block">
@@ -194,7 +195,7 @@ import { mapActions } from "vuex";
   export default {
     data() {
         return {
-            username: "",
+            email: "",
             password: "",
         };
     },
@@ -202,7 +203,7 @@ import { mapActions } from "vuex";
         ...mapActions("auth", ["login"]),
         async performLogin() {
             const credentials = {
-                username: this.username,
+                email: this.email,
                 password: this.password,
             };
             const success = await this.login(credentials);

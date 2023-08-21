@@ -1,24 +1,29 @@
 import axios from "axios";
+import { useAttrs } from "vue";
 
 const auth = {
   namespaced: true,
   state: {
     token: localStorage.getItem("token") || "",
+   
   },
   getters: {
-    isAuthenticated: (state) => !!state.token,
+    isAuthenticated: (state) => !!state.token, 
+    getUser: (state) => state.user,
   },
   actions: {
     async login({ commit }, credentials) {
       try {
         const response = await axios.post(
-          "https://fakestoreapi.com/auth/login",
+          "https://ecommerce.olipiskandar.com/api/v1/auth/login",
           credentials
         );
-        const token = response.data.token;
+        const token = response.data.access_token;
+      
 
         // Save token to localStorage
         localStorage.setItem("token", token);
+        
 
         commit("SET_TOKEN", token);
         console.log("Token saved:", token);
@@ -42,6 +47,7 @@ const auth = {
     SET_TOKEN(state, token) {
       state.token = token;
     },
+   
   },
 };
 
