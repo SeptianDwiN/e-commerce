@@ -8,6 +8,7 @@ import Contact from "../views/Contact.vue"
 import Cart from "../views/Cart.vue"
 import Checkout from "../views/Checkout.vue"
 import Brand from "../views/Brand.vue"
+import Category from "../views/Category.vue";
 
 
 
@@ -65,6 +66,12 @@ const routes = [
         name: "Brand",
         component: Brand,
      
+      },
+      {
+        path: "/category",
+        name: "Category",
+        component: Category,
+      
       },
 ];
 

@@ -1,65 +1,281 @@
 <template>
-  <div class="lg:m-10">
-  <form class="relative border border-gray-100 space-y-3 max-w-screen-md mx-auto rounded-md bg-white p-6 shadow-xl lg:p-10">
-  <h1 class="mb-6 text-xl font-semibold lg:text-2xl">Register</h1>
-
-  <div class="grid gap-3 md:grid-cols-2">
-    <div> 
-      <label class=""> First Name </label>
-      <input type="text" placeholder="Your Name" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-    </div>
-    <div>
-      <label class=""> Last Name </label>
-      <input type="text" placeholder="Last  Name" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-    </div>
-  </div>
-  <div>
-    <label class=""> Username </label>
-    <input type="text" placeholder="Username" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-  </div>
-  <div>
-    <label class=""> Email Address </label>
-    <input type="email" placeholder="Email" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-  </div>
-  <div>
-    <label class=""> Password </label>
-    <input type="password" placeholder="******" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-  </div>
-  <div class="grid gap-3 lg:grid-cols-2">
-    <div>
-      <label class=""> Gender </label>
-      <div class="relative w-56 mt-2 bg-gray-100 rounded-lg">
-        <input class="peer hidden" type="checkbox" name="select-1" id="select-1" />
-        <label for="select-1" class="flex w-full cursor-pointer rounded-lg select-none border p-2 px-3 text-sm text-gray-700 ring-blue-400 peer-checked:ring">Select Option </label>
-        <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none absolute right-5 top-3 h-4 text-gray-600 transition peer-checked:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
-        <ul class="max-h-0 select-none flex-col overflow-hidden rounded-b-lg shadow-md transition-all duration-300 peer-checked:max-h-56 peer-checked:py-3">
-          <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Male</li>
-          <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Female</li>
-          <li class="cursor-pointer px-3 py-2 text-sm text-gray-500 hover:bg-blue-500 hover:text-white">Other</li>
-        </ul>
+  <br>
+  <br>
+  <div
+      class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50"
+    >
+      <div class="relative">
+        <div
+          class="hidden sm:block h-56 w-56 text-indigo-300 absolute a-z-10 -left-20 -top-20"
+        >
+          <svg
+            id="patternId"
+            width="100%"
+            height="100%"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern
+                id="a"
+                patternUnits="userSpaceOnUse"
+                width="40"
+                height="40"
+                patternTransform="scale(0.6) rotate(0)"
+              >
+                <rect x="0" y="0" width="100%" height="100%" fill="none" />
+                <path
+                  d="M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5"
+                  stroke-width="1"
+                  stroke="none"
+                  fill="currentColor"
+                />
+              </pattern>
+            </defs>
+            <rect
+              width="800%"
+              height="800%"
+              transform="translate(0,0)"
+              fill="url(#a)"
+            />
+          </svg>
+        </div>
+        <div
+          class="hidden sm:block h-28 w-28 text-indigo-300 absolute a-z-10 -right-20 -bottom-20"
+        >
+          <svg
+            id="patternId"
+            width="100%"
+            height="100%"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <pattern
+                id="b"
+                patternUnits="userSpaceOnUse"
+                width="40"
+                height="40"
+                patternTransform="scale(0.5) rotate(0)"
+              >
+                <rect x="0" y="0" width="100%" height="100%" fill="none" />
+                <path
+                  d="M11 6a5 5 0 01-5 5 5 5 0 01-5-5 5 5 0 015-5 5 5 0 015 5"
+                  stroke-width="1"
+                  stroke="none"
+                  fill="currentColor"
+                />
+              </pattern>
+            </defs>
+            <rect
+              width="800%"
+              height="800%"
+              transform="translate(0,0)"
+              fill="url(#b)"
+            />
+          </svg>
+        </div>
+        <!-- Register -->
+        <div
+          class="relative flex flex-col sm:w-[30rem] rounded-lg border-gray-400 bg-white shadow-lg px-4"
+        >
+          <div class="flex-auto p-6">
+            <!-- Logo -->
+            <div
+              class="mb-10 flex flex-shrink-0 flex-grow-0 items-center justify-center overflow-hidden"
+            >
+              <a
+                href="#"
+                class="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500"
+              >
+                <span
+                  class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100"
+                  >Register</span
+                >
+              </a>
+            </div>
+            <!-- /Logo -->
+            <h4 class="mb-2 font-medium text-gray-700 xl:text-xl">
+              Welcome !
+            </h4>
+            <p class="mb-6 text-gray-500">
+              Please sign-up to access your account
+            </p>
+  
+            <form @submit.prevent="performRegister">
+              <div class="mb-4">
+                <label
+                  for="name"
+                  class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                  >Name</label
+                >
+                <input
+                  v-model="name"
+                  type="text"
+                  class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                  id="email"
+                  name="email-email"
+                  placeholder="Enter your email "
+                  autofocus=""
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  for="email"
+                  class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                  >Email</label
+                >
+                <input
+                  v-model="email"
+                  type="text"
+                  class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                  id="email"
+                  name="email-email"
+                  placeholder="Enter your email "
+                  autofocus=""
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <div class="flex justify-between">
+                  <label
+                    class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                    for="password"
+                    >Password</label
+                  >
+                  
+                </div>
+                <div class="relative flex w-full flex-wrap items-stretch">
+                  <input
+                    v-model="password"
+                    type="password"
+                    id="password"
+                    class="relative block flex-auto cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                    name="password"
+                    placeholder="············"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-4">
+                <div class="flex justify-between">
+                  <label
+                    class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                    for="password"
+                    >Confirm Password</label
+                  >
+                  
+                </div>
+                <div class="relative flex w-full flex-wrap items-stretch">
+                  <input
+                    v-model="confirm_password"
+                    type="password"
+                    id="password"
+                    class="relative block flex-auto cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                    name="password"
+                    placeholder="············"
+                    required
+                  />
+                </div>
+                </div>
+                <div class="mb-4">
+                <label
+                  for="email"
+                  class="mb-2 inline-block text-xs font-medium uppercase text-gray-700"
+                  >Phone</label
+                >
+                <input
+                  v-model="phone"
+                  type="number"
+                  class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
+                  id="number"
+                  name="number"
+                  placeholder="+62 889 6742 2491" 
+                  autofocus=""
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <div class="block">
+                  <input
+                    class="mt-1 mr-2 h-5 w-5 appearance-none rounded border border-gray-300 bg-contain bg-no-repeat align-top text-black shadow checked:bg-indigo-500 focus:border-indigo-500 focus:shadow"
+                    type="checkbox"
+                    id="remember-me"
+                    style="
+                      background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\'%3e%3cpath fill=\'none\' stroke=\'%23fff\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M6 10l3 3l6-6\'/%3e%3c/svg%3e');
+                    "
+                    checked
+                  />
+                  <label class="inline-block" for="remember-me">
+                    Remember Me
+                  </label>
+                </div>
+              </div>
+              <div class="mb-4">
+                <button
+                  class="grid w-full cursor-pointer select-none rounded-md border border-indigo-500 bg-indigo-500 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
+                  type="submit"
+                >
+                  Sign up
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- /Register -->
       </div>
     </div>
-    <div>
-      <label class=""> Phone: <span class="text-sm text-gray-400">(optional)</span> </label>
-      <input type="text" placeholder="+62 853 5445 0543" class="mt-2 h-12 w-full rounded-md bg-gray-100 px-3" />
-    </div>
-  </div>
 
-  <div class="checkbox">
-    <input type="checkbox" id="chekcbox1" checked="" />
-    <label for="checkbox1">I agree to the <a href="/login" target="_blank" class="text-blue-600"> Terms and Conditions </a> </label>
-  </div>
-
-  <div>
-    <button type="button" class="mt-5 w-full rounded-md bg-blue-600 p-2 text-center font-semibold text-white">Create account</button>
-  </div>
-</form>
-
-</div>
 </template>
 
-<script>
 
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+    auth() {
+        return {
+            name: '',
+            email: '',
+            phone: '',
+            password: '',
+            confirm_password:'',
+        };
+    },
+    methods: {
+        ...mapActions('auth', ['register']),
+        async performRegister() {
+            const credentials = {
+           name : this.name,
+             email: this.email,
+                phone: this.phone,
+                password: this.password,
+                confirm_password: this.confirm_password,
+            };
+            const success = await this.register(credentials);
+            
+            if(success) {
+                this.$router.push('/login');
+            } else {
+                alert("Register Failed!")
+            }
+        },
+    },
+};
 </script>
+
+<style>
+.logo {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    display: block;
+    z-index: 100;
+    transition: all 250ms linear;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+    display: block;
+}
+</style>

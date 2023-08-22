@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import auth from "./module/auth";
 import brand from "./module/brand";
 import produk from "./module/produk";
+import category from "./module/category";
 
 const store = createStore({
   state: {
@@ -10,7 +11,8 @@ const store = createStore({
   modules: {
     auth,
     brand,
-    produk
+    produk,
+    category
   },
 });
 
