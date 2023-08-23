@@ -1,7 +1,5 @@
 <template>
-<br>
-<br>
-<div class="font-sans text-base text-gray-900 sm:px-10">
+<div class="font-sans text-base text-gray-900 sm:px-16 mt-10">
   <div class="text-base text-gray-900">
     <div class="mx-auto w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
       <div class="mx-2 pt-12 text-center md:mx-auto md:w-2/3 md:pb-12">
@@ -21,7 +19,7 @@
       <div class="mb-4"><label class="text mb-2 block font-medium" for="message">Message:</label><textarea class="h-52 w-full rounded border border-gray-300 px-3 py-2 outline-none ring-blue-500 focus:ring" id="message" required=""></textarea></div>
       <div class="flex items-center">
         <div class="flex-1"></div>
-        <button class="rounded-xl bg-green-600 px-4 py-3 text-center font-bold text-white hover:bg-blue-700" type="submit">Send message</button>
+        <button class="rounded-xl bg-green-600 px-4 py-3 text-center font-bold text-white hover:bg-green-100" type="submit">Send message</button>
       </div>
     </form>
     <div class="mt-10 bg-green-700 px-10 py-8 text-gray-100 md:mt-0 md:ml-auto">

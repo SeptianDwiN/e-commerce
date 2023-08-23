@@ -1,6 +1,8 @@
 <template>
   <br>
   <br>
+  <br>
+  <br>
   <div
       class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50"
     >
@@ -73,7 +75,7 @@
             />
           </svg>
         </div>
-        <!-- Register -->
+<!-- Register -->
         <div
           class="relative flex flex-col sm:w-[30rem] rounded-lg border-gray-400 bg-white shadow-lg px-4"
         >
@@ -87,7 +89,7 @@
                 class="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500"
               >
                 <span
-                  class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100"
+                  class="flex-shrink-0 text-3xl font-black highcase tracking-tight opacity-100"
                   >Register</span
                 >
               </a>
@@ -113,7 +115,7 @@
                   class="block w-full cursor-text appearance-none rounded-md border border-gray-400 bg--100 py-2 px-3 text-sm outline-none focus:border-indigo-500 focus:bg-white focus:text-gray-600 focus:shadow"
                   id="email"
                   name="email-email"
-                  placeholder="Enter your email "
+                  placeholder="Enter your name "
                   autofocus=""
                   required
                 />
@@ -194,22 +196,7 @@
                   required
                 />
               </div>
-              <div class="mb-4">
-                <div class="block">
-                  <input
-                    class="mt-1 mr-2 h-5 w-5 appearance-none rounded border border-gray-300 bg-contain bg-no-repeat align-top text-black shadow checked:bg-indigo-500 focus:border-indigo-500 focus:shadow"
-                    type="checkbox"
-                    id="remember-me"
-                    style="
-                      background-image: url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 20 20\'%3e%3cpath fill=\'none\' stroke=\'%23fff\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M6 10l3 3l6-6\'/%3e%3c/svg%3e');
-                    "
-                    checked
-                  />
-                  <label class="inline-block" for="remember-me">
-                    Remember Me
-                  </label>
-                </div>
-              </div>
+              <br>
               <div class="mb-4">
                 <button
                   class="grid w-full cursor-pointer select-none rounded-md border border-indigo-500 bg-indigo-500 py-2 px-5 text-center align-middle text-sm text-white shadow hover:border-indigo-600 hover:bg-indigo-600 hover:text-white focus:border-indigo-600 focus:bg-indigo-600 focus:text-white focus:shadow-none"
@@ -221,10 +208,9 @@
             </form>
           </div>
         </div>
-        <!-- /Register -->
       </div>
     </div>
-
+<!-- /Register -->
 </template>
 
 
@@ -245,7 +231,7 @@ export default {
         ...mapActions('auth', ['register']),
         async performRegister() {
             const credentials = {
-           name : this.name,
+            name : this.name,
              email: this.email,
                 phone: this.phone,
                 password: this.password,

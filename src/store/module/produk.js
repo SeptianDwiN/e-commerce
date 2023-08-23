@@ -8,10 +8,10 @@ const produk = {
   getters: {
     getProduk: (state) => state.produkData,
     //
-    getProdukById: (state) => (produkId) => {
-        console.log("ProdukId:", produkId);
+    getProdukBySlug: (state) => (produkSlug) => {
+        console.log("ProdukSlug:", produkSlug);
         console.log("ProdukData:", state.produkData);
-        const produk = state.produkData.find((p) => p.id == produkId);
+        const produk = state.produkData.find((p) => p.slug == produkSlug);
         console.log("Produk:", produk);
         return produk;
   },
@@ -27,10 +27,10 @@ const produk = {
       }
     },
     //
-    async fetchSingleProduk({ commit }, produkId){
+    async fetchSingleProduk({ commit }, produkSlug){
         try{
             const response = await axios.get(
-                `https://ecommerce.olipiskandar.com/api/v1/product/details/${produkId}`
+                `https://ecommerce.olipiskandar.com/api/v1/product/details/${produkSlug}`
             );
             commit("SET_SINGLE_PRODUK", response.data['products']);
         }catch (error) {

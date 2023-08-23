@@ -1,15 +1,12 @@
 <template>
     <br>
     <br>
+    <br>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap" rel="stylesheet" />
     <h1 class="mt-2 text-5xl font-extrabold text-black text-center mt-9">ALL-BRANDS</h1>
     <div class="grid grid-cols-4 gap-4 m-9">
-        <div v-for="brand in getBrand.data.slice(0,10)" >
-            
-            <div class="flex flex-col justify-between p-4 leading-normal">
-           
-        </div>
-      <div>
+        <div v-for="brand in getBrand.data.slice(0,12)" >
+          <div>
         <div class="group my-10 flex w-full max-w-xs flex-col overflow-hidden bg-white">
       <a class="relative flex h-80 w-72 overflow-hidden" href="#">
         <img class="absolute top-0 right-0 h-full w-full object-cover" :src="brand.logo"
@@ -28,13 +25,13 @@
           </button>
         </div>
       </a>
-    <div class="mt-4 pb-5">
-        <a href="#">
-      <h4 class="text-center tracking-tight text-black-500">{{ brand.name }}</h4>
+          <div class="mt-4 pb-5">
+          <a href="#">
+          <h4 class="text-center tracking-tight text-black-500 ">{{ brand.name }}</h4>
          </a>
-    </div>
-    </div>
-    </div>
+         </div>
+        </div>
+       </div>
       </div>
     </div>
     

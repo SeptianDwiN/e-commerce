@@ -1,8 +1,7 @@
 <template>
-    <br />
-    <br />
+   
     <div
-      class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50"
+      class="flex min-h-screen w-screen w-full items-center justify-center text-gray-600 bg-gray-50 mt-10"
     >
       <div class="relative">
         <div
@@ -87,7 +86,7 @@
                 class="flex cursor-pointer items-center gap-2 text-indigo-500 no-underline hover:text-indigo-500"
               >
                 <span
-                  class="flex-shrink-0 text-3xl font-black lowercase tracking-tight opacity-100"
+                  class="flex-shrink-0 text-3xl font-black highcase tracking-tight opacity-100"
                   >Login.</span
                 >
               </a>
@@ -189,8 +188,7 @@
  
   
   <script>
-  import { RouterView } from "vue-router";
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
   
   export default {
     data() {
@@ -198,6 +196,9 @@ import { mapActions } from "vuex";
             email: "",
             password: "",
         };
+    },
+    computed: {
+      ...mapGetters('auth', ['loginError', 'isAuthenticated']),
     },
     methods: {
         ...mapActions("auth", ["login"]),
@@ -207,14 +208,18 @@ import { mapActions } from "vuex";
                 password: this.password,
             };
             const success = await this.login(credentials);
-            if (success) {
+            if (success && this.isAuthenticated) {
                 this.$router.push("/");
-            }
-            else {
-                alert("Login Failed");
-            }
+            } else {
+              //handle login error
+                if (this.loginError) {
+                  alert(this.loginError);
+                } else {
+                  alert("Login Failed")
+                }
+            } 
         },
     },
-    components: { RouterView }
+    
 };
   </script>

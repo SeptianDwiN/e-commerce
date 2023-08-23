@@ -5,7 +5,7 @@ const auth = {
   namespaced: true,
   state: {
     token: localStorage.getItem("token") || "",
-  
+    loginError: null ,
   },
   getters: {
     isAuthenticated: (state) => !!state.token, 
@@ -26,10 +26,13 @@ const auth = {
         localStorage.setItem("user", JSON.stringify(user));
 
         commit("SET_TOKEN", token);
+        commit("SET_LOGIN_ERROR", null ),
         console.log("Token saved:", token);
 
         return true;
       } catch (error) {
+        const errorMessage = error.response.data.message || "Login failed";
+        commit("SET_LOGIN_ERROR", errorMessage);
         console.error(error);
         return false;
       }
@@ -66,17 +69,20 @@ const auth = {
       const token = localStorage.getItem("token");
       localStorage.removeItem("token");
       commit("SET_TOKEN", "");
+      
       // Log token removed
       console.log("Token removed:", token);
+      // this.$router.push("/login");
       window.location.href = "/login";
+      
     },
   },
   mutations: {
     SET_TOKEN(state, token) {
       state.token = token;
     },
-    SET_USER(state, user) {
-      state.user = user;
+    SET_LOGIN_ERROR(state, error) {
+      state.loginError = error;
   }
   },
 };

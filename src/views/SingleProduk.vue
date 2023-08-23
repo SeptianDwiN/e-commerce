@@ -85,7 +85,7 @@
                               <h1 class="text-3xl font-bold">${{ produk.base_price }}</h1>
                               <!-- <span class="text-base">/month</span> -->
                           </div>
-
+                          <router-link to="/cart">
                           <button type="button"
                               class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                              <!-- <router-link to="/cart"> -->
@@ -94,9 +94,11 @@
                                   <path stroke-linecap="round" stroke-linejoin="round"
                                       d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                               </svg>
-                              Add to cart
+                             Add to cart
+                              
                           <!-- </router-link> -->
                           </button>
+                        </router-link>
                           
                       </div>
 
@@ -109,7 +111,7 @@
                                       d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                                       class=""></path>
                               </svg>
-                              Free shipping worldwide
+                               Shipping worldwide
                           </li>
 
                           <li class="flex items-center text-left text-sm font-medium text-gray-600">
@@ -149,7 +151,12 @@
               </div>
           </div>
           <div v-else>
-              Product not found.
+             <!-- component -->
+<div class="flex justify-center items-center h-screen">
+    <div class="relative w-24 h-24 animate-spin rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-red-400 ">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gray-200 rounded-full border-2 border-white"></div>
+    </div>
+</div>
           </div>
       </div>
   </section>
@@ -160,9 +167,9 @@ import { mapGetters, mapActions} from "vuex";
 
 export default {
   computed: {
-      ...mapGetters("produk", ["getProdukById"]),
+      ...mapGetters("produk", ["getProdukBySlug"]),
       produk() {
-          return this.getProdukById(Number(this.$route.params.id));
+          return this.getProdukBySlug((this.$route.params.slug));
       },
   },
   methods: {
@@ -174,8 +181,8 @@ export default {
     this.fetchProduk()
   },
   mounted(){
-    const produkId = this.$route.params.id;
-    this.fetchSingleProduk(produkId)
+    const produkSlug = this.$route.params.slug;
+    this.fetchSingleProduk(produkSlug)
   }
   
 
