@@ -2,6 +2,15 @@
     <br>
     <br>
     <br>
+    <div v-if="getBrand == false">
+        <div class="flex justify-center items-center h-screen">
+    <div class="relative w-24 h-24 animate-spin rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-red-400 ">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-gray-200 rounded-full border-2 border-white"></div>
+    </div>
+    
+</div>
+    </div>
+    <div v-else>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap" rel="stylesheet" />
     <h1 class="mt-2 text-5xl font-extrabold text-black text-center mt-9">ALL-BRANDS</h1>
     <div class="grid grid-cols-4 gap-4 m-9">
@@ -35,7 +44,7 @@
       </div>
     </div>
     
-    
+  </div>
     </template>
     <script>
     import { mapGetters, mapActions } from 'vuex';

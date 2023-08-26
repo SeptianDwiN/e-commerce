@@ -69,23 +69,100 @@
                           <!-- <p class="ml-2 text-sm font-medium text-gray-500">{{ product.rating.rate }}</p> -->
                       </div>
 
-                      <h2 class="mt-8 text-base text-gray-900">Category</h2>
-                      <div class="mt-3 flex select-none flex-wrap items-center gap-1">
-                          <label class="">
-                              <input type="radio" name="type" value="Powder" class="peer sr-only" checked />
-                              <!-- <p
-                                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
-                                  {{ product.category }}</p> -->
-                          </label>
-                      </div>
+                      <h2 class="mt-8 text-base text-gray-900">Color</h2>
+            <div class="mt-3 flex select-none flex-wrap items-center gap-1">
+              <label class="">
+                <input type="radio" name="type" value="blue" class="peer sr-only" checked />
+                <p
+                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  Blue</p>
+              </label>
+              <label class="">
+                <input type="radio" name="type" value="black" class="peer sr-only" />
+                <p
+                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  Black</p>
+              </label>
+              <label class="">
+                <input type="radio" name="type" value="white" class="peer sr-only" />
+                <p
+                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  White</p>
+              </label>
+            </div>
+
+            <h2 class="mt-8 text-base text-gray-900">Choose subscription</h2>
+            <div class="mt-3 flex select-none flex-wrap items-center gap-1">
+              <label class="">
+                <input type="radio" name="subscription" value="4 Months" class="peer sr-only" />
+                <p
+                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  4 Months</p>
+                <span class="mt-1 block text-center text-xs">$80/mo</span>
+              </label>
+              <label class="">
+                <input type="radio" name="subscription" value="8 Months" class="peer sr-only" checked />
+                <p
+                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  8 Months</p>
+                <span class="mt-1 block text-center text-xs">$60/mo</span>
+              </label>
+              <label class="">
+                <input type="radio" name="subscription" value="12 Months" class="peer sr-only" />
+                <p
+                  class="peer-checked:bg-black peer-checked:text-white rounded-lg border border-black px-6 py-2 font-bold">
+                  12 Months</p>
+                <span class="mt-1 block text-center text-xs">$40/mo</span>
+              </label>
+            </div>
+
+            <!-- counter -->
+            <div class="flex items-center mt-5">
+              <button class="border rounded-md py-2 px-4 mr-2" @click="kurang">-</button>
+              <span class="text-center w-20 border rounded-md py-2 px-2">{{ cek }}</span>
+              <!-- <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1"> -->
+              <button class="border rounded-md py-2 px-4 ml-2" @click="tambah">+</button>
+            </div>
+        
+
+            <div class="absolute top-0 right-1 flex sm:bottom-0 sm:top-auto">
+              <button type="button" 
+                class="flex rounded p-2 text-center text-gray-500 transition-all duration-200 ease-in-out focus:shadow hover:text-gray-900">
+                <svg class="block h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="">
+                  </path>
+                </svg>
+              </button>
+            </div>
 
                       <div
                           class="mt-10 flex flex-col items-center justify-between space-y-4 border-t border-b py-4 sm:flex-row sm:space-y-0">
                           <div class="flex items-end">
-                              <h1 class="text-3xl font-bold">${{ produk.base_price }}</h1>
+                              <h1 class="text-3xl font-bold"> ${{ produk.base_price }} </h1>
                               <!-- <span class="text-base">/month</span> -->
                           </div>
-                          <router-link to="/cart">
+                          <div v-if="token">
+                         
+                          <button type="button" @click="addToCart(produk.id)"
+                              class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
+                             <!-- <router-link to="/cart"> -->
+                               <svg xmlns="http://www.w3.org/2000/svg" class="shrink-0 mr-3 h-5 w-5" fill="none"
+                                  viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                              </svg>
+
+                             Add to cart
+                              
+                          <!-- </router-link> -->
+                          </button>
+                      
+                      </div>
+
+
+                      <div v-else>
+                        <router-link to="/login">
                           <button type="button"
                               class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800">
                              <!-- <router-link to="/cart"> -->
@@ -94,14 +171,15 @@
                                   <path stroke-linecap="round" stroke-linejoin="round"
                                       d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                               </svg>
+                              
                              Add to cart
                               
                           <!-- </router-link> -->
                           </button>
                         </router-link>
-                          
                       </div>
-
+                    </div>
+                
                       <ul class="mt-8 space-y-2">
                           <li class="flex items-center text-left text-sm font-medium text-gray-600">
                               <svg class="mr-2 block h-5 w-5 align-middle text-gray-500"
@@ -166,6 +244,13 @@
 import { mapGetters, mapActions} from "vuex";
 
 export default {
+    data() {
+        return{
+            token: null,
+            cek: 1
+        }
+    },
+
   computed: {
       ...mapGetters("produk", ["getProdukBySlug"]),
       produk() {
@@ -174,16 +259,48 @@ export default {
   },
   methods: {
       ...mapActions("produk", ["fetchSingleProduk"]),
-      ...mapActions("produk",["fetchProduk"])
-      
+      ...mapActions("produk",["fetchProduk"]),
+      ...mapActions("cart",["fetchCart"]),
+
+      // cart
+      ...mapActions('cart', ['fetchCart']),
+      //add to cart
+      ...mapActions('produk', ['addToCart']),
+
+
+     async addToCart(produkId){
+      try{ 
+        await this.$store.dispatch('produk/addToCart', produkId);
+        this.fetchCart();
+      }catch(error) {
+        console.error(error);
+      }
+     },
+  
+  tambah() {
+    this.cek++
   },
+  kurang() {
+    if(this.cek > 1) {
+      this.cek--
+    }
+  }
+  },
+
   beforeMount(){
     this.fetchProduk()
+    this.fetchCart()
   },
   mounted(){
     const produkSlug = this.$route.params.slug;
+    // console.log("Fetching single produk with slug:", produk_slug);
     this.fetchSingleProduk(produkSlug)
-  }
+
+    //cek token
+    const cektoken = localStorage.getItem('token');
+    this.token = cektoken
+
+  },
   
 
   };
