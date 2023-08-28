@@ -12,7 +12,7 @@
     </div>
     <div v-else>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap" rel="stylesheet" />
-    <h1 class="mt-2 text-5xl font-extrabold text-black text-center mt-9">ALL-BRANDS</h1>
+    <h1 class="mt-2 text-5xl font-extrabold text-black text-center mt-9">All Brands</h1>
     <div class="grid grid-cols-4 gap-4 m-9">
         <div v-for="brand in getBrand.data.slice(0,12)" >
           <div>

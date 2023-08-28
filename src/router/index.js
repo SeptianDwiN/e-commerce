@@ -10,7 +10,7 @@ import Checkout from "../views/Checkout.vue"
 import Brand from "../views/Brand.vue"
 import Category from "../views/Category.vue";
 import Profile from "../views/Profile.vue";
-
+import Order from "../views/Order.vue"
 
 
 const routes = [
@@ -83,6 +83,12 @@ const routes = [
         component: Profile,
       
       },
+      {
+        path: "/order/:orderCode",
+        name: "Order",
+        component: Order,
+        props: true,
+      }
 ];
 
 const router = createRouter({

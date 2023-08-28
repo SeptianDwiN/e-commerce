@@ -8,9 +8,8 @@
 </div>
     </div>
     <div v-else>
-    <div class="mt-20 text-center">
-      <span class="font-bold text-4xl">All Categories</span>
-    </div>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap" rel="stylesheet" />
+    <h1 class="mt-2 text-5xl font-extrabold text-black text-center mt-20">All Category</h1>
     <div class="grid grid-cols-3 gap-3 mt-5">
     
     <div  v-for="category in getCategory.data.slice(0,6)" :key="category.id">

@@ -4,9 +4,11 @@ const cart = {
     namespaced: true,
     state: {
         cartData: [],
+        dataCheckout : []
     },
     getters: {
         getCart: (state) => state.cartData,
+        getCheckout: (state) => state.dataCheckout
     },
     actions: {
         async fetchCart({ commit }) {
@@ -54,35 +56,42 @@ const cart = {
             }
         },
         //
-        async checkoutCart (
-            {commit, dispatch},
-            {shippingAddress, billingAddress, paymentType, deliveryType, cart_item_id}
-        ){
-            try{
-                const response = await axios.post(
-                    `https://ecommerce.olipiskandar.com/api/v1/checkout/order/store`,
-                    {
-                        shipping_address_id: shippingAddress,
-                        billing_address_id: billingAddress,
-                        payment_type: paymentType,
-                        delivery_type: deliveryType,
-                        cart_item_id: cart_item_id,
-                        transactionId: null,
-                        receipt: null,
-                    },
-                    {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem("token")}`,
-                        },
-                    }
-                );
-                console.log(response.data.message);
-                dispatch("fetchCart")
-            } catch (error) {
-                alert('error ');
-                console.log(error);
+        async checkoutCart(
+            { commit, dispatch },
+            {
+              shippingAddress,
+              billingAddress,
+              paymentType,
+              deliveryType,
+              cart_item_ids,
             }
-        },
+          ) {
+            try {
+              const response = await axios.post(
+                `https://ecommerce.olipiskandar.com/api/v1/checkout/order/store`,
+                {
+                  shipping_address_id: shippingAddress,
+                  billing_address_id: billingAddress,
+                  payment_type: paymentType,
+                  delivery_type: deliveryType,
+                  cart_item_ids: cart_item_ids,
+                  transactionId: null,
+                  receipt: null,
+                },
+                {
+                  headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                  },
+                }
+              );
+              console.log(response.data.message);
+              commit('SET_CHECKOUT' ,response.data)
+              dispatch("fetchCart");
+            } catch (error) {
+              alert("Error");
+              console.log(error);
+            }
+          },
         //change
         async changeQuantityCart({ commit, dispatch }, {cartId, typeQty}) {
             try {
@@ -112,6 +121,9 @@ const cart = {
         SET_CART(state, cart) {
             state.cartData = cart;
         },
+        SET_CHECKOUT(state, checkout) {
+            state.dataCheckout = checkout
+        }
     },
 };
 

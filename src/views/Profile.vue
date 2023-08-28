@@ -12,10 +12,11 @@
     <br>
     <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">Nama : {{ getUser.name}}</h3>
     <p class="text-center text-sm leading-6 text-gray-500 hover:text-gray-600">Email : {{ getUser.email}}</p>
+    <p class="text-center text-sm leading-6 text-gray-500 hover:text-gray-600">Alamat : </p>
     <ul class="mt-3 divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shzadow">
       <li class="flex items-center py-3 text-sm">
         <span>Status</span>
-        <span class="ml-auto"><span class="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700">Open for side gigs</span></span>
+        <span class="ml-auto"><span class="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700">Online</span></span>
       </li>
       <li class="flex items-center py-3 text-sm">
         <span>Joined On</span>
