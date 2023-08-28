@@ -10,17 +10,35 @@
       <img class="mx-auto h-auto w-full rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80" alt="" />
     </div>
     <br>
-    <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">Nama : {{ getUser.name}}</h3>
-    <p class="text-center text-sm leading-6 text-gray-500 hover:text-gray-600">Email : {{ getUser.email}}</p>
-    <p class="text-center text-sm leading-6 text-gray-500 hover:text-gray-600">Alamat : </p>
+    
     <ul class="mt-3 divide-y rounded bg-gray-100 py-2 px-3 text-gray-600 shadow-sm hover:text-gray-700 hover:shzadow">
       <li class="flex items-center py-3 text-sm">
-        <span>Status</span>
-        <span class="ml-auto"><span class="rounded-full bg-green-200 py-1 px-2 text-xs font-medium text-green-700">Online</span></span>
+        <span>Name : </span>
+        <span class="ml-auto">{{ getUser.name}}</span>
       </li>
       <li class="flex items-center py-3 text-sm">
-        <span>Joined On</span>
-        <span class="ml-auto">FOLOW IG ADMIN @....</span>
+        <span>Email : </span>
+        <span class="ml-auto">{{ getUser.email}}</span>
+      </li>
+      <li class="flex items-center py-3 text-sm text-right">
+        <span>Alamat :  </span>
+        <span class="ml-auto">{{ address.address }}</span>
+      </li>
+      <li class="flex items-center py-3 text-sm">
+        <span>Kota : </span>
+        <span class="ml-auto"> {{ address.city }}</span>
+      </li>
+      <li class="flex items-center py-3 text-sm">
+        <span>Kota : </span>
+        <span class="ml-auto"> {{ address.state }}</span>
+      </li>
+      <li class="flex items-center py-3 text-sm">
+        <span>Provinsi : </span>
+        <span class="ml-auto"> {{ address.country }}</span>
+      </li>
+      <li class="flex items-center py-3 text-sm">
+        <span>Provinsi : </span>
+        <span class="ml-auto"> {{ address.postal_code }}</span>
       </li>
     </ul>
   </div>
@@ -33,12 +51,19 @@ import { mapGetters, mapActions } from 'vuex';
 export default {
     computed: {
         ... mapGetters('user', ['getUser']),
+        ... mapGetters('auth', ['getAddress']),
+        address(){  
+      return this.getAddress.data[0]
     },
+    },
+    
     methods: {
         ...mapActions('user', ["fetchUser"]),
+        ...mapActions('auth', ["getUserAddress"]),
     },
     created() {
-        this.fetchUser();
+      this.getUserAddress();
+      this.fetchUser();
     },
 }
 </script>

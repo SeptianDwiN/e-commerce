@@ -77,7 +77,7 @@
         <input class="peer hidden" v-model="deliveryType" value="standard" id="radio_3" type="radio" name="radio" checked />
         <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
         <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_3">
-          <img class="w-14 object-contain" src="/images/naorrAeygcJzX0SyNI4Y0.png" alt="" />
+          <img class="w-14 object-contain" src="https://componentland.com/images/naorrAeygcJzX0SyNI4Y0.png" alt="" />
           <div class="ml-5">
             <span class="mt-2 font-semibold">Reguller</span>
             <p class="text-slate-500 text-sm leading-6">Delivery 2-4 day</p>  
@@ -89,7 +89,7 @@
         <input class="peer hidden" v-model="deliveryType" value="express" id="radio_4" type="radio" name="radio" checked />
         <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
         <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_4">
-          <img class="w-14 object-contain" src="" alt="" />
+          <img class="w-14 object-contain" src="https://componentland.com/images/naorrAeygcJzX0SyNI4Y0.png" alt="" />
           <div class="ml-5">
             <span class="mt-2 font-semibold">Expres</span>
             <p class="text-slate-500 text-sm leading-6">Delivery 2-4 day</p>
@@ -99,7 +99,7 @@
     </form>
 
   </div>
-  <div class="mt-10 bg-gray-100 px-5 pt-14 lg:mt-1">
+  <div class="mt-10 bg-gray-50 px-5 pt-14 lg:mt-1">
     <p class="text-xl font-medium">Payment Details</p>
     <p class="text-gray-400">Complete your order by providing your payment details.</p>
     <div class="">
