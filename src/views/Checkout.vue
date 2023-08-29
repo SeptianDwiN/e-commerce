@@ -59,24 +59,15 @@
           </div>
         </label>
       </div>
-      <div class="relative">
-        <input class="peer hidden" v-model="paymentType" value="cash_on_delivery" id="radio_2" type="radio" name="radio" checked />
-        <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
-          <img class="w-14 object-contain" src="https://cdn-icons-png.flaticon.com/512/218/218390.png" alt="" />
-          <div class="ml-6">
-            <span class="mt-2 font-semibold">Payment Wallet</span>
-          </div>
-        </label>
-      </div>
+     
     </form>
 
     <p class="mt-8 text-lg font-medium">Metode Pengiriman</p>
     <form class="mt-5  gap-6 grid grid-cols-2">
       <div class="relative">
-        <input class="peer hidden" v-model="deliveryType" value="standard" id="radio_3" type="radio" name="radio" checked />
+        <input class="peer hidden" v-model="deliveryType" value="standard" id="radio_2" type="radio" name="radio" checked />
         <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_3">
+        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_2">
           <img class="w-14 object-contain" src="https://componentland.com/images/naorrAeygcJzX0SyNI4Y0.png" alt="" />
           <div class="ml-5">
             <span class="mt-2 font-semibold">Reguller</span>
@@ -86,9 +77,9 @@
       </div>
 
       <div class="relative">
-        <input class="peer hidden" v-model="deliveryType" value="express" id="radio_4" type="radio" name="radio" checked />
+        <input class="peer hidden" v-model="deliveryType" value="express" id="radio_3" type="radio" name="radio" checked />
         <span class="peer-checked:border-gray-700 absolute right-4 top-1/2 box-content block h-3 w-3 -translate-y-1/2 rounded-full border-8 border-gray-300 bg-white"></span>
-        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_4">
+        <label class="peer-checked:border-2 peer-checked:border-gray-700 peer-checked:bg-gray-50 flex cursor-pointer select-none rounded-lg border border-gray-300 p-4" for="radio_3">
           <img class="w-14 object-contain" src="https://componentland.com/images/naorrAeygcJzX0SyNI4Y0.png" alt="" />
           <div class="ml-5">
             <span class="mt-2 font-semibold">Expres</span>

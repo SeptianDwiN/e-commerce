@@ -15,15 +15,15 @@
                               <div class="flex flex-row items-start lg:flex-col">
                                   <button type="button"
                                       class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-gray-900 text-center">
-                                      <img class="h-full w-full object-cover" :src="produk.image" alt="" />
+                                      <img class="h-full w-full object-cover" src="../assets/img/compas3.jpg" alt="" />
                                   </button>
                                   <button type="button"
                                       class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                                      <img class="h-full w-full object-cover" :src="produk.image" alt="" />
+                                      <img class="h-full w-full object-cover" src="../assets/img/compas3.jpg" alt="" />
                                   </button>
                                   <button type="button"
                                       class="flex-0 aspect-square mb-3 h-20 overflow-hidden rounded-lg border-2 border-transparent text-center">
-                                      <img class="h-full w-full object-cover" :src="produk.image" alt="" />
+                                      <img class="h-full w-full object-cover" src="../assets/img/compas3.jpg" alt="" />
                                   </button>
                               </div>
                           </div>

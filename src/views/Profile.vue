@@ -28,16 +28,16 @@
         <span>Kota : </span>
         <span class="ml-auto"> {{ address.city }}</span>
       </li>
-      <li class="flex items-center py-3 text-sm">
+      <!-- <li class="flex items-center py-3 text-sm">
         <span>Kota : </span>
         <span class="ml-auto"> {{ address.state }}</span>
-      </li>
+      </li> -->
       <li class="flex items-center py-3 text-sm">
-        <span>Provinsi : </span>
+        <span>Negara : </span>
         <span class="ml-auto"> {{ address.country }}</span>
       </li>
       <li class="flex items-center py-3 text-sm">
-        <span>Provinsi : </span>
+        <span>Kode pos : </span>
         <span class="ml-auto"> {{ address.postal_code }}</span>
       </li>
     </ul>
